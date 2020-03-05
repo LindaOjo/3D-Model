@@ -1095,7 +1095,25 @@ THREE.OrbitControls = function ( object, domElement ) {
 
 	}
 
+	//
+	scope.domElement.addEventListener( 'contextmenu', onContextMenu, false );
 
+	scope.domElement.addEventListener( 'mousedown', onMouseDown, false );
+	scope.domElement.addEventListener( 'wheel', onMouseWheel, false );
+
+	scope.domElement.addEventListener( 'touchstart', onTouchStart, false );
+	scope.domElement.addEventListener( 'touchend', onTouchEnd, false );
+	scope.domElement.addEventListener( 'touchmove', onTouchMove, false );
+
+	scope.domElement.addEventListener( 'keydown', onKeyDown, false );
+
+	// make sure element can receive keys.
+
+	if ( scope.domElement.tabIndex === - 1 ) {
+
+		scope.domElement.tabIndex = 0;
+
+	}
 
 	// force an update at start
 
